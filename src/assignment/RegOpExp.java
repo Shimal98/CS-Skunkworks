@@ -42,8 +42,21 @@ package assignment;
 	 * Make and return a Nfa for this operator expression tree
 	 */	
 	public Nfa makeNfa() {
-		
-		return null;          // Dummy return to keep Java happy	     
+		Nfa result = null;
+		Nfa leftNfa = left.makeNfa();
+		Nfa rightNfa = right.makeNfa();
+		if (op == ALTERNATION) {
+			NfaState alternateLeftState = leftNfa.getStart();
+			NfaState alternateRightState = rightNfa.getStart();
+			NfaState startState = new NfaState(alternateLeftState, alternateRightState, NfaState.EPSILON, leftNfa.numStates + rightNfa.numStates + 1);
+			NfaState acceptState = new NfaState(null,null, NfaState.EPSILON, leftNfa.numStates + rightNfa.numStates + 2);
+			leftNfa.getAccept().next1 = acceptState;
+			rightNfa.getAccept().next1 = acceptState;
+			result = new Nfa(startState, acceptState, leftNfa.numStates + rightNfa.numStates + 2);
+		} else if (op == CONCATENATION) {
+			
+		}
+		return result;          // Dummy return to keep Java happy	     
 	}
 	
 
