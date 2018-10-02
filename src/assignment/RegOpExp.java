@@ -54,7 +54,9 @@ package assignment;
 			rightNfa.getAccept().next1 = acceptState;
 			result = new Nfa(startState, acceptState, leftNfa.numStates + rightNfa.numStates + 2);
 		} else if (op == CONCATENATION) {
-			
+			leftNfa.getAccept().next1 = rightNfa.getStart();
+			leftNfa.getAccept().symbol = NfaState.EPSILON;
+			result = new Nfa(leftNfa.getStart(), rightNfa.getAccept(), rightNfa.numStates + leftNfa.numStates);
 		}
 		return result;          // Dummy return to keep Java happy	     
 	}

@@ -91,5 +91,11 @@ public class Nfa {
 		   } 
 		}		
 		return result;
-	}	 	             	     	     
+	}
+	
+	public Dfa toDfa() {
+		// Convert NFA to DFA here.
+		// Use algorithms and datat structures from slides.
+		return null;
+	}
 }
