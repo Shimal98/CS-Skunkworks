@@ -17,8 +17,11 @@ public class RegSymbolExp extends RegExp {
 	 * Make and return a Nfa for this character expression tree
 	 */	
 	public Nfa makeNfa() {
-
-		return null;          // Dummy return to keep Java happy
+		NfaState acceptState = new NfaState(null, null, NfaState.EPSILON, 2);
+		NfaState startState = new NfaState(acceptState, null, symbol, 1);
+				
+		Nfa symbolNFA = new Nfa(startState, acceptState, 2);
+		return symbolNFA;
 	}
 
 	/*

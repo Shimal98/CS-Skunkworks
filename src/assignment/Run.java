@@ -15,7 +15,7 @@ public class Run {
    		String re = "(\"x\" | \"y\")* \"x\" \"y\" \"y\"";
    		System.out.println("Converting regular expression " + re + " to RegExp expression tree");
         try {
-   		  RegExp r =  (new RegExp2AST(re)).convert(); // Will need to convert RegExp to RegularExpression at some time
+   		  RegularExpression r =  (RegularExpression) (new RegExp2AST(re)).convert(); // Will need to convert RegExp to RegularExpression at some time
    		  System.out.println("No syntax errors");
    		  System.out.println("Original fully parenthesised regular expression : " + 
    		                     r.decompile());  
