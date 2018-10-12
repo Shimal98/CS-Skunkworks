@@ -117,6 +117,8 @@ public class NfaState {
 		this.stateNo = stateNo;
 	}
 	
+	
+	
 	/*
 	 * Return a string representation of this NFA state
 	 */

@@ -184,25 +184,5 @@ public class RegExp2AST {
          }
          return left;  
     }
-
-   	
-   	public static void main(String[] a) throws IOException,ParseException {
-   		
-   		/*
-   		 *   Illustrates use of convert routine.
-   		 *   The example regexp ("x" | "y")* "x" "y" "y" is syntactically correct.
-   		 *   To see what happens when there's a syntax error in the regexp, edit it to put in an error
-   		 */
-   		String re = "(\"x\" | \"y\")* \"x\" \"y\" \"y\"";
-   		System.out.println("Converting regular expression " + re + " to RegExp expression tree");
-        try {
-   		  RegExp r = (new RegExp2AST(re)).convert();
-   		  System.out.println("No syntax errors");
-   		  System.out.println("Original fully parenthesised regular expression : " + 
-   		                     r.decompile());  
-        } catch (ParseException ex) {
-        	System.out.println("Error at/near position " + ex.getErrorOffset() + " : " + 
-                               ex.getMessage());
-          }
-   	}	                                        	                                             	                    	         	   	         	         	  	         	   		  	     		    	                                         	    	   	  		            
+                                     	                                             	                    	         	   	         	         	  	         	   		  	     		    	                                         	    	   	  		            
 }
